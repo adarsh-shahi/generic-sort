@@ -8,11 +8,15 @@ class Sorter {
             let isSorted = true;
             for (let j = 0; j < this.collection.length - 1 - i; j++) {
                 // If collection is an array of numbers
-                if (this.collection[j] > this.collection[j + 1]) {
-                    isSorted = false;
-                    const temp = this.collection[j];
-                    this.collection[j] = this.collection[j + 1];
-                    this.collection[j + 1] = temp;
+                if (this.collection instanceof Array) {
+                    if (this.collection[j] > this.collection[j + 1]) {
+                        isSorted = false;
+                        const temp = this.collection[j];
+                        this.collection[j] = this.collection[j + 1];
+                        this.collection[j + 1] = temp;
+                    }
+                }
+                if (typeof this.collection === "string") {
                 }
             }
             if (isSorted)
