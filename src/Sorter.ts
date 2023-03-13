@@ -1,8 +1,13 @@
-import { NumbersCollection } from "./NumbersCollection";
-export class Sorter {
-	private collection: NumbersCollection;
+interface Sortable {
+	length: number;
+	compare(leftIndex: number, rightIndex: number): boolean;
+	swap(leftIndex: number, rightIndex: number): void;
+}
 
-	constructor(collection: NumbersCollection) {
+export class Sorter {
+	private collection: Sortable;
+
+	constructor(collection: Sortable) {
 		this.collection = collection;
 	}
 
